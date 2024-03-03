@@ -1,0 +1,22 @@
+name: Cypress e2e Test
+
+on: push
+
+jobs:
+  e2e-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v3
+
+      - name: run end-to-end cypress test
+        id: run_end_to_end_cypress_test
+        uses: cypress-io/github-action@v6
+        with:
+          browser: chrome
+          record: true
+          parallel: true
+        env:
+          IS_CI: true
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
