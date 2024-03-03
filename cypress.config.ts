@@ -4,5 +4,6 @@ export default defineConfig({
   e2e: {
     specPattern: "__tests__/e2e",
     baseUrl: "http://localhost:3000",
+    projectId: "87m1y4",
   },
 });
